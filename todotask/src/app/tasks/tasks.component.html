@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center text-primary mt-5">Todo Tasks</h3>
+        </div>
+    </div>
+    <div class="row pt-4">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <h4 class="m-0 pb-3 text-center text-warning">Add your tasks here</h4>
+                <div class="form-div">
+                    <input type="text" class="form-control mb-3" placeholder="Enter Todo Task" [(ngModel)]="taskTitle">
+                    <input type="text" class="form-control mb-3" placeholder="Enter Assignee" [(ngModel)]="taskAssignee">
+                    <input type="date" class="form-control mb-3" placeholder="Enter Date" [(ngModel)]="taskDate">
+                    <button class="btn btn-warning w-100" (click)="addTask()">Add Task</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-body">
+                <h4 class="m-0 pb-3 text-center text-warning">Your Tasks List</h4>
+                <div class="card card-body flex-row justify-content-between align-items-center mb-3" *ngFor="let task of taskList; index as i">
+                    <div class="task_div">
+                        <p class="mb-0">{{task.date}}</p>
+                        <p class="mb-0">{{task.Title}}</p> 
+                        <p class="mb-0"> - {{task.Assignee}}</p> 
+                    </div>
+                   <button class="btn btn-danger" (click)="deleteRecord(i)">Delete Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row my-3 p-3 border border-info rounded">
+        <div class="col-md-12">
+            <h2 class="text-center">Book Management System</h2>
+        </div>
+        <div class="col-md-12 mt-5">
+            <div class="form-div">
+                <div class="input-div d-flex">
+                    <input [(ngModel)]="newTitle" class="form-control me-4" type="text" placeholder="Enter Title">
+                    <input [(ngModel)]="newAuthor" class="form-control" type="text" placeholder="Enter Author">
+                    <div class="btn-div ms-4 w-100">
+                        <button (click)="addbook()" class="btn btn-primary">Add Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="p-2 mt-4 border border-primary d-flex justify-content-between" *ngFor="let book of newBooks; index as i">
+                <h3>{{book.title}} - {{book.author}}</h3>
+                <button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

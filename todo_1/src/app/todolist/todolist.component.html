@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="row py-2">
+            <div class="col-12">
+                <h1 class="text-center text-primary">Todo List</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="card py-3 px-5">
+                    <p class="h4 text-center text-secondary">Add Your Tasks</p>
+                    <div class="input-div pt-3 mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Your Task" [(ngModel)]="newTask">
+                    </div>
+                    <div class="input-div mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Task Assignee" [(ngModel)]="newTaskAssignee">
+                    </div>
+                    <div class="input-div mb-3">
+                        <input type="date" class="form-control" placeholder="Enter Task Deadline" [(ngModel)]="newTaskDate">
+                    </div>
+                    <button class="btn btn-primary" (click)="addTask()">Add Task</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card py-3 px-5">
+                    <p class="h4 text-center text-secondary">Todo List</p>
+                    <div class="card px-3 py-2 mb-3 d-flex align-items-center flex-row justify-content-between" *ngFor="let task of alltasks; index as i">
+                       <div class="task">
+                            <h4>{{task.task}}</h4>
+                            <p class="mb-2 h6">{{task.assignee}}</p>
+                            <p class="m-0">{{task.date}}</p>
+                       </div>
+                       <div class="delete_task">
+                            <button class="btn btn-danger" (click)="deleteTask(i)">Delete</button>
+                       </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</section>
